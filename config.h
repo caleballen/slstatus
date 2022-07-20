@@ -65,7 +65,11 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ battery_perc,		"   %s",			"BAT1" 	},
-	// { vol_perc,			"  墳 %s",			 "/dev/snd/controlC0"	},
-	{ datetime,			"   %s",			"%F %T" }
+	{ separator,		"  ",															""},
+	{ battery_perc,		"^b#504945^  ^c#8ec07c^^d^^b#504945^ %s ^d^",			"BAT1" 	},
+	{ separator,		"  ",															""},
+	{ run_command,			"^c#fabd2f^墳^d^ %s",			 "/bin/sh -c \"amixer get Master | tail -n1 | grep -Po '\\[\\K[^%]*' | head -n1\""	},
+	{ separator,		"  ",															""},
+	{ datetime,			"^b#504945^  ^c#fb4934^^d^^b#504945^ %s ^d^",			"%d/%m %a %H:%M" },
+	{ separator,		"  ",															""},
 };
